@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import WelcomeScreen from './LoginForm';
 
 import classes from "./Login.module.css";
 
@@ -6,9 +7,9 @@ const LoginForm = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
-
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -53,7 +54,7 @@ const LoginForm = () => {
         }
       })
       .then((data) => {
-      
+
       })
 
       .catch((err) => {
@@ -63,11 +64,18 @@ const LoginForm = () => {
 
   return (
     <section className={classes.auth}>
+
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
           {/* <label htmlFor="email">Your Email</label> */}
-          <input type="email" id="email"placeholder="email" required ref={emailInputRef} />
+          <input
+            type="email"
+            id="email"
+            placeholder="email"
+            required
+            ref={emailInputRef}
+          />
         </div>
         <div className={classes.control}>
           {/* <label htmlFor="password">Your Password</label> */}
@@ -79,10 +87,10 @@ const LoginForm = () => {
             autoComplete="username"
             ref={passwordInputRef}
           />
-          <br/>
-          <br/>
+          <br />
+          <br />
 
-                    <input
+          <input
             type="password"
             id="password"
             placeholder="confirm password"
