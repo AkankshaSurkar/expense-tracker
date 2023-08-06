@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import Login from "./component/Login";
-import WelcomeScreen from "./component/LoginForm";
+import LoginForm from "./component/LoginForm";
+import WelcomeScreen from "./component/WelcomeScreen";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,8 +11,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {!isLoggedIn ? <WelcomeScreen /> : <Login onLogin={handleLogin} />}
+<div>
+      {!isLoggedIn ? <WelcomeScreen /> : <LoginForm onLogin={handleLogin} />}
     </div>
   );
 }
